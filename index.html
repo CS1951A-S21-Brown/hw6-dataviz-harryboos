@@ -7,6 +7,12 @@
         <link rel="stylesheet" href="main.css"/>
         <!--Feel free to add more CSS files as needed-->
         <script type="text/javascript" src="https://d3js.org/d3.v5.min.js"></script>
+        <!-- Load d3-cloud -->
+        <link rel="shortcut icon" href="#">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/10.6.2/css/bootstrap-slider.min.css">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/10.6.2/bootstrap-slider.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/gh/holtzy/D3-graph-gallery@master/LIB/d3.layout.cloud.js"></script>
     </head>
 <body>
     <div class="header">
@@ -15,12 +21,24 @@
     <!--  We included a basic HTML structure for the 3 graphs here. Feel free to change this if you'd like  -->
     <div class="row">
         <div class="col-lg-6">
+            
             <div id="graph1"></div>
+            <div class="but">
+                <button type="button" class="btn btn-info" onclick="setData(0)">2000 - 2009</button>
+                <button type="button" class="btn btn-info" onclick="setData(1)">2010 - 2019</button>
+            </div>
             <div id="graph2"></div><br/>
         </div>
         <div class="col-lg-6">
             <div id="graph3"></div>
         </div>
+    </div>
+    <div>
+        <p>Question 1: <br> I used International Football Results dataset. For question 1, I used a barplot to show the number of football games by year. I chose 2000-2009 and 2010-2019. Users can use button to choose which period to show. For question 2, I used a wordcloud to show top 10 nations with winning percentage. I limited the nations with number of games larger than 100 to ignore the countries with only a few games. When user mouseover the country name, he can see country name, total number of games, winning number of games, winning percentage, and rank. For question 3, I used a network. Each node is a country with information including total number of games, winning number of games, winning percentage, and score in last two world cup. Each link is a game between two countries. The best performing country in last two world cup is France based on score. Score is a measurement defined by myself. There is a high win list of countries which contain countries with winning number of games larger than 5, which means this country is highly competitive in last two world cup. If a country wins a country in that list, he got 5 points; if a country wins a country not in that list, he got 3 points; if a country tied with a country, and either country is in that list, both country got 2 points; if a country tied with a country, and neither of them is in tht list, both country got 1 point. France got 37 points in total. </p>
+        <p>Question 2: <br> 1. The abundant kinds of graphs help me to have multiple choices in data visualization. I can choose the most appropriate graphs to visualize my data. All the graphs are easy to use and combine with data. <br> 2. D3 focuses on binding data to DOM elements. When I update data, D3 will update data visualization automatically, so that I don't need to update data visualization by myself, which save a lot of time. <br> 3. D3 uses a functional style, and written in Javascript. In this case, I can reuse code and add specific functions to different dataset. This also helps me save a lot of time when deploying data visualization.</p>
+        <p>Question 3: <br> 1. D3 doesn't generate predetermined visualizations. It is inefficient to generate D3 visualizations when I just need a quick chart to visualize my data like using Excel. <br> 2. Although there are a lot of examples of D3 online, it is hard and time-consuming to modify example to suit my data and my needs. <br> 3. D3 is hard for people who do not know coding to manage. Other visualization tool is easy for people who do not know coding to use, but D3 requires a lot in coding ability</p>
+        <p>Question 4: <br> Users with color blindness might find this dashboard accessible. Because my dashboard do not need labels, and I seperate elements with whitespace o r pattern. Users with assistive technology might have difficulty. I should avoid hover overlays too much, and instead show the output directly, because it is often difficult or impossible to hover over a graph when using assistive technology. I also should avoid complex tooling like using network, because they cannot be used by screen readers.</p>
+        <p>Question 5: <br> First factor is that complex tooling can help me show the relationships between each data point, like network can show the relationship between each country if they have a game. Second factor is that using complex tooling makes my data visualization more interesting and thus more attractive. Third factor is that using hover overlays can make my dashboard more clear, and save a lot of space of showing text. Users can see the detail information in hovers instead of webpage directly. </p>
     </div>
     <!--Feel free to add more JavaScript files as needed-->
     <script type="text/javascript" src="main.js"></script>

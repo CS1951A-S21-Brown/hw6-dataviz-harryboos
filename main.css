@@ -9,4 +9,50 @@
     text-align: center;
 }
 
+button:focus {
+    outline: 0 !important;
+}
+
+svg {
+    display: block;
+    margin: 0 auto;
+    font: 15px sans-serif;
+}
+
+.but {
+    text-align: center;
+}
+
+.tooltip {
+    position: absolute;
+    font-size: 15px;
+    min-width: 100px;
+    padding: 10px;
+    pointer-events: none;
+    background-color: white;
+    /*font-weight: bold;*/
+    text-align: center;
+    border-radius: 5px;
+}
+
+.links line {
+    stroke: #999;
+    stroke-opacity: 0.6;
+}
+
+.nodes circle {
+    stroke: #fff;
+    stroke-width: 1.5px;
+}
+
+.controls > button {
+    margin: 0 20px;
+}
+
+.focus line {
+    stroke: rgb(255, 0, 0);
+    stroke-dasharray: 1,1;
+    shape-rendering: crispEdges;
+}
+
 /* Include any custom CSS styling here! */
